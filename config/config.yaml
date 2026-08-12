@@ -1,0 +1,16 @@
+base_url: "https://erp.naseni.xyz"
+
+# Set to false if you want to WATCH the browser while tests run
+# (great for learning). Set to true for faster / CI runs.
+headless: false
+
+# Milliseconds to pause before every click/type action.
+# Higher = slower and easier to watch. 0 = full speed.
+slow_mo: 1500
+
+# Login details used by the tests.
+# Tip: keep the real password OUT of this file. Instead set it as
+# an environment variable before running tests:
+#   Windows PowerShell:  $env:NASENI_PASSWORD="yourpassword"
+login_email: "khalil.admin@yopmail.com"
+login_password: "changeme"
