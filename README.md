@@ -77,7 +77,7 @@ change what Playwright needs. If a test fails saying it "couldn't find"
 an element, the fastest fix is:
 
 ```bat
-playwright codegen https://erp.naseni.xyz/login
+ .\myenv\Scripts\playwright.exe codegen https://erp.naseni.xyz/login
 ```
 
 This opens a browser + a recorder window. Click the field/button you

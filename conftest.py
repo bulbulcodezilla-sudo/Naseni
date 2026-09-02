@@ -68,8 +68,15 @@ def page(browser, config):
 #    test in one test file ("module" scope) - so we only log
 #    in ONCE per file instead of once per test.
 # ---------------------------------------------------------
-@pytest.fixture(scope="module")
+@pytest.fixture
 def logged_in_page(browser, config):
+    if not config.get("login_password") or config["login_password"] == "changeme":
+        pytest.skip(
+            "Login password is missing or still set to the demo value. "
+            "Set the real password in the NASENI_PASSWORD environment variable "
+            "before running login-based tests."
+        )
+
     context = browser.new_context(base_url=config["base_url"], viewport=None)
     page = context.new_page()
 
@@ -81,3 +88,4 @@ def logged_in_page(browser, config):
     yield page
 
     context.close()
+    

@@ -30,12 +30,15 @@ def test_status_cards_are_visible(logged_in_page):
 def test_can_search_for_a_file(logged_in_page):
     dashboard_page = DashboardPage(logged_in_page)
 
-    dashboard_page.search_file("test-101")
+    dashboard_page.search_file("test")
     dashboard_page.pause()  # hold here so you can see the typed search text
 
     # Note: get_input_value(), not get_text() - inputs store their
     # typed value differently from how headings/labels store text.
-    assert dashboard_page.get_input_value(dashboard_page.search_input) == "test-101"
+    assert dashboard_page.get_input_value(dashboard_page.search_input) == "test"
+
+
+    
 
 
 def test_can_switch_to_received_tab(logged_in_page):
@@ -45,3 +48,10 @@ def test_can_switch_to_received_tab(logged_in_page):
     dashboard_page.expect_visible(dashboard_page.received_tab)
 
     dashboard_page.pause()  # hold here so you can see the Received tab open
+
+def test_open_search_keyword_result(logged_in_page):
+    dashboard_page = DashboardPage(logged_in_page)
+    dashboard_page.pause()  # hold here so you can see the dashboard
+
+    dashboard_page.search_file("test")
+    dashboard_page.open_search_result("test")

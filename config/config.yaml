@@ -12,5 +12,32 @@ slow_mo: 1500
 # Tip: keep the real password OUT of this file. Instead set it as
 # an environment variable before running tests:
 #   Windows PowerShell:  $env:NASENI_PASSWORD="yourpassword"
-login_email: "khalil.admin@yopmail.com"
+login_email: "cvcv@yopmail.com"
 login_password: "changeme"
+
+# --- File Manager settings ---
+# Real hierarchy: Directorate -> Department -> Unit -> Files
+# (EVC/CEOs office is a DIRECTORATE, not a department)
+
+# The Directorate folder this logged-in user belongs to (confirmed
+# from the dashboard heading: "Department: EVC/CEOs office" -
+# despite the dashboard label saying "Department", this is actually
+# the top-level Directorate folder in File Manager)
+own_directorate: "EVC/CEOs office"
+
+# TODO: a Department folder name nested INSIDE own_directorate above.
+# Open File Manager > EVC/CEOs office in the real app and copy a
+# real Department folder name you see there.
+own_department: "Procurement"
+
+# TODO: a Unit folder name nested INSIDE own_department above.
+own_unit: "Unit EVC"
+
+# TODO: the name of a DIFFERENT Directorate that this user should NOT
+# have upload access to - used by the negative-access test.
+other_directorate: "ADMIN AND HUMAN RESOURCES"
+
+# Path to the sample file used for upload tests.
+# Copy your test file into the test_data folder below, or point
+# this at wherever it already lives on your machine.
+sample_file_path: "C:\\Users\\hussa\\Desktop\\Testing\\Automation\\Naseni\\test_data\\sample_file.pdf.pdf"

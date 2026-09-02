@@ -25,6 +25,12 @@ def test_login_page_displays_correctly(page):
 
 def test_successful_login(page, config):
     """Log in with valid credentials and land on My Desk"""
+    if not config.get("login_password") or config["login_password"] == "changeme":
+        raise AssertionError(
+            "Login password is missing or still set to the demo value. "
+            "Set the real password in the NASENI_PASSWORD environment variable "
+            "before running login-based tests."
+        )
 
     login_page = LoginPage(page)
     login_page.open()

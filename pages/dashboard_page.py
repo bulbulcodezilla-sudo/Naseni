@@ -39,6 +39,10 @@ class DashboardPage(BasePage):
         self.kiv_tab = page.get_by_text("KIV", exact=True)
         self.endorsements_tab = page.get_by_text("Endorsements", exact=True)
 
+        #Serch Result navigtation
+        #search_result = page.get_by_role("link", name="test")
+
+
     # --- Actions you can do on this screen ---
 
     def search_file(self, keyword):
@@ -46,7 +50,13 @@ class DashboardPage(BasePage):
         self.type_text(self.search_input, keyword)
         return self
 
+    def open_search_result(self, filename):
+        """Click the first search result (after typing in the search box)"""
+        self.page.get_by_role("link", name=filename).first.click()
+        return self
+
     def open_tab(self, tab_locator):
         """Click one of the tabs, e.g. dashboard.open_tab(dashboard.received_tab)"""
         self.click(tab_locator)
         return self
+ 
